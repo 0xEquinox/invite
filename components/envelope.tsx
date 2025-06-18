@@ -18,7 +18,7 @@ export default function Envelope({ imageUrl, altText, message = "You're invited!
     }
 
     return (
-        <div className="relative w-full max-w-md aspect-[4/3] cursor-pointer" onClick={toggleEnvelope}>
+        <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/3] cursor-pointer mx-auto" onClick={toggleEnvelope}>
             {/* Envelope body */}
             <div className="absolute inset-0 bg-rose-200 rounded-lg shadow-lg overflow-hidden">
                 {/* Envelope inner shadow */}
@@ -46,11 +46,11 @@ export default function Envelope({ imageUrl, altText, message = "You're invited!
 
             {/* Card with image */}
             <motion.div
-                className="absolute inset-[5%] bg-white rounded shadow-md overflow-hidden flex flex-col items-center justify-center p-2"
+                className="absolute inset-[3%] bg-transparent rounded  overflow-hidden flex flex-col items-center justify-center p-0"
                 animate={{
-                    y: isOpen ? "-60%" : "0%",
+                    y: isOpen ? "-70%" : "0%",
                     opacity: isOpen ? 1 : 0.5,
-                    scale: isOpen ? 1.1 : 0.9,
+                    scale: isOpen ? 1.5 : 0.9,
                     zIndex: isOpen ? 10 : 5,
                 }}
                 transition={{
@@ -59,7 +59,7 @@ export default function Envelope({ imageUrl, altText, message = "You're invited!
                     ease: "easeInOut",
                 }}
             >
-                <div className="relative w-full h-full overflow-hidden rounded">
+                <div className="relative w-full h-full overflow-hidden rounded bg-transparent">
                     <Image
                         src={imageUrl || "/placeholder.svg"}
                         alt={altText}
